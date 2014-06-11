@@ -12,4 +12,6 @@ public class TelemetryDiagnosticControlsTest {
     public void a_trivial_test(){
         assertEquals(5, 2 + 3);
     }
+
+    // TODO-new-feature: Retry to connect to the server for maximum 5 times
 }
