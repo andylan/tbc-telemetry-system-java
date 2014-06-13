@@ -11,7 +11,7 @@ public class TelemetryDiagnosticControlsTest {
     @Test
     public void it_can_use_a_telemetry_client_to_send_a_diagnostic_message_and_receive_a_diagnostic_info() throws Exception{
         // Arrange
-        TestingTelemetryClient testingTelemetryClient = new TestingTelemetryClient();
+        TestingTelemetryClientConnection testingTelemetryClient = new TestingTelemetryClientConnection();
         TelemetryDiagnosticControls telemetryDiagnosticControls = new TelemetryDiagnosticControls(testingTelemetryClient);
 
         // Act
