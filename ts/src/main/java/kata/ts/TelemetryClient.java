@@ -33,6 +33,11 @@ public class TelemetryClient {
     private final Random connectionEventsSimulator = new Random();
     private final Random randomMessageSimulator = new Random();
 
+    public TelemetryClient() {
+        this.telemetryClientConnection = new TelemetryClientConnection();
+        this.telemetryDataChannel = new TelemetryDataChannel();
+    }
+
     public boolean getOnlineStatus()
     {
         return onlineStatus;
