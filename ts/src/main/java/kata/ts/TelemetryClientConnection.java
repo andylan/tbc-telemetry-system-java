@@ -6,6 +6,11 @@ import java.util.Random;
  * Created by benwu on 14-6-13.
  */
 public class TelemetryClientConnection {
+    //
+    // The communication with the server is simulated in this implementation.
+    // Because the focus of the exercise is on the other class.
+    //
+
     private final Random connectionEventsSimulator = new Random();
     protected boolean onlineStatus;
 

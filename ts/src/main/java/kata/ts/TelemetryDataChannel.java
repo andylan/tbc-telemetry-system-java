@@ -6,6 +6,21 @@ import java.util.Random;
  * Created by benwu on 14-6-13.
  */
 public class TelemetryDataChannel {
+    public static final String DIAGNOSTIC_MESSAGE = "AT#UD";
+    public static final String DIAGNOSTIC_INFO = "LAST TX rate................ 100 MBPS\r\n"
+            + "HIGHEST TX rate............. 100 MBPS\r\n"
+            + "LAST RX rate................ 100 MBPS\r\n"
+            + "HIGHEST RX rate............. 100 MBPS\r\n"
+            + "BIT RATE.................... 100000000\r\n"
+            + "WORD LEN.................... 16\r\n"
+            + "WORD/FRAME.................. 511\r\n"
+            + "BITS/FRAME.................. 8192\r\n"
+            + "MODULATION TYPE............. PCM/FM\r\n"
+            + "TX Digital Los.............. 0.75\r\n"
+            + "RX Digital Los.............. 0.10\r\n"
+            + "BEP Test.................... -5\r\n"
+            + "Local Rtrn Count............ 00\r\n"
+            + "Remote Rtrn Count........... 00";
     private boolean diagnosticMessageJustSent = false;
     private final Random randomMessageSimulator = new Random();
 
@@ -19,7 +34,7 @@ public class TelemetryDataChannel {
 
         // The simulation of Send() actually just remember if the last message sent was a diagnostic message.
         // This information will be used to simulate the Receive(). Indeed there is no real server listening.
-        if (message == TelemetryClient.DIAGNOSTIC_MESSAGE)
+        if (message == DIAGNOSTIC_MESSAGE)
         {
             this.diagnosticMessageJustSent = true;
         }
@@ -36,7 +51,7 @@ public class TelemetryDataChannel {
         if (this.diagnosticMessageJustSent)
         {
             // Simulate the reception of the diagnostic message
-            message = TelemetryClient.DIAGNOSTIC_INFO;
+            message = DIAGNOSTIC_INFO;
 
             this.diagnosticMessageJustSent = false;
         }

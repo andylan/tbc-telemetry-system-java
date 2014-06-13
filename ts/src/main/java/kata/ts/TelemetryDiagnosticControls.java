@@ -52,7 +52,7 @@ public class TelemetryDiagnosticControls {
             throw new Exception("Unable to connect.");
         }
 
-        telemetryClient.telemetryDataChannel.send(TelemetryClient.DIAGNOSTIC_MESSAGE, telemetryClient);
+        telemetryClient.telemetryDataChannel.send(TelemetryDataChannel.DIAGNOSTIC_MESSAGE, telemetryClient);
         diagnosticInfo = telemetryClient.telemetryDataChannel.receive(telemetryClient);
     }
 }

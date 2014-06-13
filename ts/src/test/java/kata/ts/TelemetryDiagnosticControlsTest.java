@@ -19,6 +19,6 @@ public class TelemetryDiagnosticControlsTest {
         telemetryDiagnosticControls.checkTransmission();
 
         // Assert
-        assertEquals(TelemetryClient.DIAGNOSTIC_INFO, telemetryDiagnosticControls.getDiagnosticInfo());
+        assertEquals(TelemetryDataChannel.DIAGNOSTIC_INFO, telemetryDiagnosticControls.getDiagnosticInfo());
     }
 }
