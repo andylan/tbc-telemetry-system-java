@@ -14,7 +14,13 @@ public class TelemetryDiagnosticControlsTest {
 
     // TODO-acceptance-test-working-on: it can use a telemetry client to send a diagnostic message and receive a diagnostic info
     @Test
-    public void it_can_use_a_telemetry_client_to_send_a_diagnostic_message_and_receive_a_diagnostic_info() {
+    public void it_can_use_a_telemetry_client_to_send_a_diagnostic_message_and_receive_a_diagnostic_info() throws Exception{
+        // Arrange
+        TelemetryDiagnosticControls telemetryDiagnosticControls = new TelemetryDiagnosticControls();
+
+        // Act
+        telemetryDiagnosticControls.checkTransmission();
+
         // Assert
         assertEquals("", telemetryDiagnosticControls.getDiagnosticInfo());
     }
