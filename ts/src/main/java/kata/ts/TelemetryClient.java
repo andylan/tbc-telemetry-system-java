@@ -27,7 +27,7 @@ public class TelemetryClient {
             + "Local Rtrn Count............ 00\r\n"
             + "Remote Rtrn Count........... 00";
 
-    private boolean onlineStatus;
+    protected boolean onlineStatus;
     private boolean diagnosticMessageJustSent = false;
 
     private final Random connectionEventsSimulator = new Random();
