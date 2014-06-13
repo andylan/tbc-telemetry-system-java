@@ -8,4 +8,9 @@ public class TelemetryClientConnection {
     {
         return telemetryClient.onlineStatus;
     }
+
+    public void disconnect(TelemetryClient telemetryClient)
+    {
+        telemetryClient.onlineStatus = false;
+    }
 }
