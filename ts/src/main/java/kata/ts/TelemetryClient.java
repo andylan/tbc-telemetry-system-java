@@ -31,7 +31,6 @@ public class TelemetryClient {
 
     private boolean diagnosticMessageJustSent = false;
 
-    private final Random connectionEventsSimulator = new Random();
     private final Random randomMessageSimulator = new Random();
 
     public TelemetryClient() {

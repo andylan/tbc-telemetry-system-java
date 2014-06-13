@@ -1,9 +1,12 @@
 package kata.ts;
 
+import java.util.Random;
+
 /**
  * Created by benwu on 14-6-13.
  */
 public class TelemetryClientConnection {
+    private final Random connectionEventsSimulator = new Random();
     protected boolean onlineStatus;
 
     public boolean getOnlineStatus(TelemetryClient telemetryClient)
@@ -24,7 +27,7 @@ public class TelemetryClientConnection {
         }
 
         // Fake the connection with 20% chances of success
-        boolean success = telemetryClient.connectionEventsSimulator.nextInt(10) <= 2;
+        boolean success = this.connectionEventsSimulator.nextInt(10) <= 2;
 
         this.onlineStatus = success;
     }
