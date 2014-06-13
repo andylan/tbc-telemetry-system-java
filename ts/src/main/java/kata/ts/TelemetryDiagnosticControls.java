@@ -44,16 +44,16 @@ public class TelemetryDiagnosticControls {
     {
         diagnosticInfo = "";
 
-        telemetryClient.telemetryClientConnection.disconnect(telemetryClient);
+        this.telemetryClientConnection.disconnect(telemetryClient);
 
         int retryLeft = 3;
-        while (telemetryClient.telemetryClientConnection.getOnlineStatus(telemetryClient) == false && retryLeft > 0)
+        while (this.telemetryClientConnection.getOnlineStatus(telemetryClient) == false && retryLeft > 0)
         {
-            telemetryClient.telemetryClientConnection.connect(DIAGNOSTIC_CHANNEL_CONNECTION_STRING);
+            this.telemetryClientConnection.connect(DIAGNOSTIC_CHANNEL_CONNECTION_STRING);
             retryLeft -= 1;
         }
 
-        if(telemetryClient.telemetryClientConnection.getOnlineStatus(telemetryClient) == false)
+        if(this.telemetryClientConnection.getOnlineStatus(telemetryClient) == false)
         {
             throw new Exception("Unable to connect.");
         }
