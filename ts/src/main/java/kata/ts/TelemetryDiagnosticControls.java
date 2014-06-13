@@ -6,26 +6,20 @@ package kata.ts;
 public class TelemetryDiagnosticControls {
     private final static String DIAGNOSTIC_CHANNEL_CONNECTION_STRING = "*111#";
 
-    private final TelemetryClient telemetryClient;
     private final TelemetryClientConnection telemetryClientConnection;
     private final TelemetryDataChannel telemetryDataChannel;
     private String diagnosticInfo = "";
 
     public TelemetryDiagnosticControls()
     {
-        this(new TelemetryClient(), new TelemetryClientConnection(), new TelemetryDataChannel());
+        this(new TelemetryClientConnection(), new TelemetryDataChannel());
     }
 
-    public TelemetryDiagnosticControls(TelemetryClient telemetryClient) {
-        this(telemetryClient, new TelemetryClientConnection(), new TelemetryDataChannel());
+    public TelemetryDiagnosticControls(TelemetryClientConnection telemetryClientConnection) {
+        this(telemetryClientConnection, new TelemetryDataChannel());
     }
 
-    public TelemetryDiagnosticControls(TelemetryClient telemetryClient, TelemetryClientConnection telemetryClientConnection) {
-        this(telemetryClient, telemetryClientConnection, new TelemetryDataChannel());
-    }
-
-    public TelemetryDiagnosticControls(TelemetryClient telemetryClient, TelemetryClientConnection telemetryClientConnection, TelemetryDataChannel telemetryDataChannel) {
-        this.telemetryClient = telemetryClient;
+    public TelemetryDiagnosticControls(TelemetryClientConnection telemetryClientConnection, TelemetryDataChannel telemetryDataChannel) {
         this.telemetryClientConnection = telemetryClientConnection;
         this.telemetryDataChannel = telemetryDataChannel;
     }
@@ -44,21 +38,21 @@ public class TelemetryDiagnosticControls {
     {
         diagnosticInfo = "";
 
-        this.telemetryClientConnection.disconnect(telemetryClient);
+        this.telemetryClientConnection.disconnect();
 
         int retryLeft = 3;
-        while (this.telemetryClientConnection.getOnlineStatus(telemetryClient) == false && retryLeft > 0)
+        while (this.telemetryClientConnection.getOnlineStatus() == false && retryLeft > 0)
         {
             this.telemetryClientConnection.connect(DIAGNOSTIC_CHANNEL_CONNECTION_STRING);
             retryLeft -= 1;
         }
 
-        if(this.telemetryClientConnection.getOnlineStatus(telemetryClient) == false)
+        if(this.telemetryClientConnection.getOnlineStatus() == false)
         {
             throw new Exception("Unable to connect.");
         }
 
-        this.telemetryDataChannel.send(TelemetryDataChannel.DIAGNOSTIC_MESSAGE, telemetryClient);
-        diagnosticInfo = this.telemetryDataChannel.receive(telemetryClient);
+        this.telemetryDataChannel.send(TelemetryDataChannel.DIAGNOSTIC_MESSAGE);
+        diagnosticInfo = this.telemetryDataChannel.receive();
     }
 }

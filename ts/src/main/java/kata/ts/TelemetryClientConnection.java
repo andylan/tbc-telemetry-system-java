@@ -14,12 +14,12 @@ public class TelemetryClientConnection {
     private final Random connectionEventsSimulator = new Random();
     protected boolean onlineStatus;
 
-    public boolean getOnlineStatus(TelemetryClient telemetryClient)
+    public boolean getOnlineStatus()
     {
         return this.onlineStatus;
     }
 
-    public void disconnect(TelemetryClient telemetryClient)
+    public void disconnect()
     {
         this.onlineStatus = false;
     }
