@@ -8,20 +8,26 @@ public class TelemetryDiagnosticControls {
 
     private final TelemetryClient telemetryClient;
     private final TelemetryClientConnection telemetryClientConnection;
+    private final TelemetryDataChannel telemetryDataChannel;
     private String diagnosticInfo = "";
 
     public TelemetryDiagnosticControls()
     {
-        this(new TelemetryClient(), new TelemetryClientConnection());
+        this(new TelemetryClient(), new TelemetryClientConnection(), new TelemetryDataChannel());
     }
 
     public TelemetryDiagnosticControls(TelemetryClient telemetryClient) {
-        this(telemetryClient, new TelemetryClientConnection());
+        this(telemetryClient, new TelemetryClientConnection(), new TelemetryDataChannel());
     }
 
     public TelemetryDiagnosticControls(TelemetryClient telemetryClient, TelemetryClientConnection telemetryClientConnection) {
+        this(telemetryClient, telemetryClientConnection, new TelemetryDataChannel());
+    }
+
+    public TelemetryDiagnosticControls(TelemetryClient telemetryClient, TelemetryClientConnection telemetryClientConnection, TelemetryDataChannel telemetryDataChannel) {
         this.telemetryClient = telemetryClient;
         this.telemetryClientConnection = telemetryClientConnection;
+        this.telemetryDataChannel = telemetryDataChannel;
     }
 
     public String getDiagnosticInfo()
