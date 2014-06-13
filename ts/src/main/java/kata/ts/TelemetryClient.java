@@ -26,6 +26,8 @@ public class TelemetryClient {
             + "BEP Test.................... -5\r\n"
             + "Local Rtrn Count............ 00\r\n"
             + "Remote Rtrn Count........... 00";
+    private TelemetryDataChannel telemetryDataChannel;
+    private TelemetryClientConnection telemetryClientConnection;
 
     protected boolean onlineStatus;
     private boolean diagnosticMessageJustSent = false;
