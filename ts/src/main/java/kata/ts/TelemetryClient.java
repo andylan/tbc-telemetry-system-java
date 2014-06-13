@@ -56,7 +56,7 @@ public class TelemetryClient {
         onlineStatus = false;
     }
 
-    // TODO: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
+    // TODO-working-on: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
     public void send(String message)
     {
         if (message == null || "".equals(message))
