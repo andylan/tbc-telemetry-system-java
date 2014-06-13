@@ -19,7 +19,7 @@ public class TelemetryClientConnection {
         this.onlineStatus = false;
     }
 
-    public void connect(String telemetryServerConnectionString, TelemetryClient telemetryClient)
+    public void connect(String telemetryServerConnectionString)
     {
         if (telemetryServerConnectionString == null || "".equals(telemetryServerConnectionString))
         {
