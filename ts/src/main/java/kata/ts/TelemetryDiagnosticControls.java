@@ -53,6 +53,6 @@ public class TelemetryDiagnosticControls {
         }
 
         telemetryClient.telemetryDataChannel.send(TelemetryClient.DIAGNOSTIC_MESSAGE, telemetryClient);
-        diagnosticInfo = telemetryClient.receive();
+        diagnosticInfo = telemetryClient.telemetryDataChannel.receive(telemetryClient);
     }
 }

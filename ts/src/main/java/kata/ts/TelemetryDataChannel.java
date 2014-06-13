@@ -23,4 +23,29 @@ public class TelemetryDataChannel {
             telemetryClient.diagnosticMessageJustSent = false;
         }
     }
+
+    public String receive(TelemetryClient telemetryClient)
+    {
+        String message;
+
+        if (telemetryClient.diagnosticMessageJustSent)
+        {
+            // Simulate the reception of the diagnostic message
+            message = TelemetryClient.DIAGNOSTIC_INFO;
+
+            telemetryClient.diagnosticMessageJustSent = false;
+        }
+        else
+        {
+            // Simulate the reception of a response message returning a random message.
+            message = "";
+            int messageLength = telemetryClient.randomMessageSimulator.nextInt(50) + 60;
+            for(int i = messageLength; i > 0; --i)
+            {
+                message += (char) telemetryClient.randomMessageSimulator.nextInt(40) + 86;
+            }
+        }
+
+        return message;
+    }
 }

@@ -38,28 +38,4 @@ public class TelemetryClient {
         this.telemetryDataChannel = new TelemetryDataChannel();
     }
 
-    public String receive()
-    {
-        String message;
-
-        if (diagnosticMessageJustSent)
-        {
-            // Simulate the reception of the diagnostic message
-            message = DIAGNOSTIC_INFO;
-
-            diagnosticMessageJustSent = false;
-        }
-        else
-        {
-            // Simulate the reception of a response message returning a random message.
-            message = "";
-            int messageLength = randomMessageSimulator.nextInt(50) + 60;
-            for(int i = messageLength; i > 0; --i)
-            {
-                message += (char)randomMessageSimulator.nextInt(40) + 86;
-            }
-        }
-
-        return message;
-    }
 }
