@@ -13,4 +13,17 @@ public class TelemetryClientConnection {
     {
         telemetryClient.onlineStatus = false;
     }
+
+    public void connect(String telemetryServerConnectionString, TelemetryClient telemetryClient)
+    {
+        if (telemetryServerConnectionString == null || "".equals(telemetryServerConnectionString))
+        {
+            throw new IllegalArgumentException();
+        }
+
+        // Fake the connection with 20% chances of success
+        boolean success = telemetryClient.connectionEventsSimulator.nextInt(10) <= 2;
+
+        telemetryClient.onlineStatus = success;
+    }
 }

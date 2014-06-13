@@ -40,19 +40,6 @@ public class TelemetryClient {
         this.telemetryDataChannel = new TelemetryDataChannel();
     }
 
-    public void connect(String telemetryServerConnectionString)
-    {
-        if (telemetryServerConnectionString == null || "".equals(telemetryServerConnectionString))
-        {
-            throw new IllegalArgumentException();
-        }
-
-        // Fake the connection with 20% chances of success
-        boolean success = connectionEventsSimulator.nextInt(10) <= 2;
-
-        onlineStatus = success;
-    }
-
     // TODO-working-on: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
     public void send(String message)
     {

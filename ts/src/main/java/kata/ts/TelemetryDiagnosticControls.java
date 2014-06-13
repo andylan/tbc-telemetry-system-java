@@ -37,7 +37,7 @@ public class TelemetryDiagnosticControls {
         int retryLeft = 3;
         while (telemetryClient.telemetryClientConnection.getOnlineStatus(telemetryClient) == false && retryLeft > 0)
         {
-            telemetryClient.connect(DIAGNOSTIC_CHANNEL_CONNECTION_STRING);
+            telemetryClient.telemetryClientConnection.connect(DIAGNOSTIC_CHANNEL_CONNECTION_STRING, telemetryClient);
             retryLeft -= 1;
         }
 
