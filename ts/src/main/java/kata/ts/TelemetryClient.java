@@ -26,7 +26,7 @@ public class TelemetryClient {
             + "BEP Test.................... -5\r\n"
             + "Local Rtrn Count............ 00\r\n"
             + "Remote Rtrn Count........... 00";
-    private TelemetryDataChannel telemetryDataChannel;
+    TelemetryDataChannel telemetryDataChannel;
     TelemetryClientConnection telemetryClientConnection;
 
     private boolean diagnosticMessageJustSent = false;
@@ -36,26 +36,6 @@ public class TelemetryClient {
     public TelemetryClient() {
         this.telemetryClientConnection = new TelemetryClientConnection();
         this.telemetryDataChannel = new TelemetryDataChannel();
-    }
-
-    // TODO-working-on: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
-    public void send(String message)
-    {
-        if (message == null || "".equals(message))
-        {
-            throw new IllegalArgumentException();
-        }
-
-        // The simulation of Send() actually just remember if the last message sent was a diagnostic message.
-        // This information will be used to simulate the Receive(). Indeed there is no real server listening.
-        if (message == DIAGNOSTIC_MESSAGE)
-        {
-            diagnosticMessageJustSent = true;
-        }
-        else
-        {
-            diagnosticMessageJustSent = false;
-        }
     }
 
     public String receive()
