@@ -24,7 +24,6 @@ public class TelemetryDataChannel {
     private boolean diagnosticMessageJustSent = false;
     private final Random randomMessageSimulator = new Random();
 
-    // TODO-working-on: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
     public void send(String message)
     {
         if (message == null || "".equals(message))
