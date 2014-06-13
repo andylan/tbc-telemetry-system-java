@@ -1,10 +1,13 @@
 package kata.ts;
 
+import java.util.Random;
+
 /**
  * Created by benwu on 14-6-13.
  */
 public class TelemetryDataChannel {
     private boolean diagnosticMessageJustSent = false;
+    private final Random randomMessageSimulator = new Random();
 
     // TODO-working-on: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
     public void send(String message, TelemetryClient telemetryClient)
@@ -41,10 +44,10 @@ public class TelemetryDataChannel {
         {
             // Simulate the reception of a response message returning a random message.
             message = "";
-            int messageLength = telemetryClient.randomMessageSimulator.nextInt(50) + 60;
+            int messageLength = this.randomMessageSimulator.nextInt(50) + 60;
             for(int i = messageLength; i > 0; --i)
             {
-                message += (char) telemetryClient.randomMessageSimulator.nextInt(40) + 86;
+                message += (char) this.randomMessageSimulator.nextInt(40) + 86;
             }
         }
 

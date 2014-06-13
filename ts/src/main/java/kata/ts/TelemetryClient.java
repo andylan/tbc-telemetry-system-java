@@ -29,8 +29,6 @@ public class TelemetryClient {
     TelemetryDataChannel telemetryDataChannel;
     TelemetryClientConnection telemetryClientConnection;
 
-    private final Random randomMessageSimulator = new Random();
-
     public TelemetryClient() {
         this.telemetryClientConnection = new TelemetryClientConnection();
         this.telemetryDataChannel = new TelemetryDataChannel();
