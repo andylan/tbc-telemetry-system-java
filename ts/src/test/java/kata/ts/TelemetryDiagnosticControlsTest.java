@@ -12,7 +12,6 @@ public class TelemetryDiagnosticControlsTest {
     // TODO-acceptance-test: retry to connect to the server for maximum 3 times
     // TODO-acceptance-test: throw an exception if it cannot connect to the server for more than 3 times
 
-    // TODO-acceptance-test-working-on: it can use a telemetry client to send a diagnostic message and receive a diagnostic info
     @Test
     public void it_can_use_a_telemetry_client_to_send_a_diagnostic_message_and_receive_a_diagnostic_info() throws Exception{
         // Arrange
