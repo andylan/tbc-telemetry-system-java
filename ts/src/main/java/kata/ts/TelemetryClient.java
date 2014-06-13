@@ -27,7 +27,7 @@ public class TelemetryClient {
             + "Local Rtrn Count............ 00\r\n"
             + "Remote Rtrn Count........... 00";
     private TelemetryDataChannel telemetryDataChannel;
-    private TelemetryClientConnection telemetryClientConnection;
+    TelemetryClientConnection telemetryClientConnection;
 
     protected boolean onlineStatus;
     private boolean diagnosticMessageJustSent = false;
@@ -38,11 +38,6 @@ public class TelemetryClient {
     public TelemetryClient() {
         this.telemetryClientConnection = new TelemetryClientConnection();
         this.telemetryDataChannel = new TelemetryDataChannel();
-    }
-
-    public boolean getOnlineStatus()
-    {
-        return onlineStatus;
     }
 
     public void connect(String telemetryServerConnectionString)
