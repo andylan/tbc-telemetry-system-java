@@ -11,7 +11,11 @@ public class TelemetryDiagnosticControls {
 
     public TelemetryDiagnosticControls()
     {
-        telemetryClient = new TelemetryClient();
+        this(new TelemetryClient());
+    }
+
+    public TelemetryDiagnosticControls(TelemetryClient telemetryClient) {
+        this.telemetryClient = telemetryClient;
     }
 
     public String getDiagnosticInfo()
