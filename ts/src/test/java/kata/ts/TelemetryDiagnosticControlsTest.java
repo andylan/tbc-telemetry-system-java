@@ -22,7 +22,7 @@ public class TelemetryDiagnosticControlsTest {
         telemetryDiagnosticControls.checkTransmission();
 
         // Assert
-        assertEquals("", telemetryDiagnosticControls.getDiagnosticInfo());
+        assertEquals(TelemetryClient.DIAGNOSTIC_INFO, telemetryDiagnosticControls.getDiagnosticInfo());
     }
 
     // TODO-new-feature: Retry to connect to the server for maximum 5 times
