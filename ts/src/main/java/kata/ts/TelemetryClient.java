@@ -29,8 +29,6 @@ public class TelemetryClient {
     TelemetryDataChannel telemetryDataChannel;
     TelemetryClientConnection telemetryClientConnection;
 
-    private boolean diagnosticMessageJustSent = false;
-
     private final Random randomMessageSimulator = new Random();
 
     public TelemetryClient() {

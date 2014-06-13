@@ -4,6 +4,8 @@ package kata.ts;
  * Created by benwu on 14-6-13.
  */
 public class TelemetryDataChannel {
+    private boolean diagnosticMessageJustSent = false;
+
     // TODO-working-on: Combining the two connection management methods with the two data communication methods violates the Single Responsibility Principle
     public void send(String message, TelemetryClient telemetryClient)
     {
@@ -16,11 +18,11 @@ public class TelemetryDataChannel {
         // This information will be used to simulate the Receive(). Indeed there is no real server listening.
         if (message == TelemetryClient.DIAGNOSTIC_MESSAGE)
         {
-            telemetryClient.diagnosticMessageJustSent = true;
+            this.diagnosticMessageJustSent = true;
         }
         else
         {
-            telemetryClient.diagnosticMessageJustSent = false;
+            this.diagnosticMessageJustSent = false;
         }
     }
 
@@ -28,12 +30,12 @@ public class TelemetryDataChannel {
     {
         String message;
 
-        if (telemetryClient.diagnosticMessageJustSent)
+        if (this.diagnosticMessageJustSent)
         {
             // Simulate the reception of the diagnostic message
             message = TelemetryClient.DIAGNOSTIC_INFO;
 
-            telemetryClient.diagnosticMessageJustSent = false;
+            this.diagnosticMessageJustSent = false;
         }
         else
         {
