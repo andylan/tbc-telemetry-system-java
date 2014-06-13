@@ -29,7 +29,6 @@ public class TelemetryClient {
     private TelemetryDataChannel telemetryDataChannel;
     TelemetryClientConnection telemetryClientConnection;
 
-    protected boolean onlineStatus;
     private boolean diagnosticMessageJustSent = false;
 
     private final Random connectionEventsSimulator = new Random();

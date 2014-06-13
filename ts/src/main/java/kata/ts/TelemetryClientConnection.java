@@ -4,14 +4,16 @@ package kata.ts;
  * Created by benwu on 14-6-13.
  */
 public class TelemetryClientConnection {
+    protected boolean onlineStatus;
+
     public boolean getOnlineStatus(TelemetryClient telemetryClient)
     {
-        return telemetryClient.onlineStatus;
+        return this.onlineStatus;
     }
 
     public void disconnect(TelemetryClient telemetryClient)
     {
-        telemetryClient.onlineStatus = false;
+        this.onlineStatus = false;
     }
 
     public void connect(String telemetryServerConnectionString, TelemetryClient telemetryClient)
@@ -24,6 +26,6 @@ public class TelemetryClientConnection {
         // Fake the connection with 20% chances of success
         boolean success = telemetryClient.connectionEventsSimulator.nextInt(10) <= 2;
 
-        telemetryClient.onlineStatus = success;
+        this.onlineStatus = success;
     }
 }
