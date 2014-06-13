@@ -13,7 +13,8 @@ public class TelemetryDiagnosticControlsTest {
         // Arrange
         TelemetryClient telemetryClient = new TelemetryClient();
         TestingTelemetryClientConnection testingTelemetryClientConnection = new TestingTelemetryClientConnection();
-        TelemetryDiagnosticControls telemetryDiagnosticControls = new TelemetryDiagnosticControls(telemetryClient, testingTelemetryClientConnection);
+        TelemetryDataChannel telemetryDataChannel = new TelemetryDataChannel();
+        TelemetryDiagnosticControls telemetryDiagnosticControls = new TelemetryDiagnosticControls(telemetryClient, testingTelemetryClientConnection, telemetryDataChannel);
 
         // Act
         telemetryDiagnosticControls.checkTransmission();
