@@ -7,15 +7,21 @@ public class TelemetryDiagnosticControls {
     private final static String DIAGNOSTIC_CHANNEL_CONNECTION_STRING = "*111#";
 
     private final TelemetryClient telemetryClient;
+    private final TelemetryClientConnection telemetryClientConnection;
     private String diagnosticInfo = "";
 
     public TelemetryDiagnosticControls()
     {
-        this(new TelemetryClient());
+        this(new TelemetryClient(), new TelemetryClientConnection());
     }
 
     public TelemetryDiagnosticControls(TelemetryClient telemetryClient) {
+        this(telemetryClient, new TelemetryClientConnection());
+    }
+
+    public TelemetryDiagnosticControls(TelemetryClient telemetryClient, TelemetryClientConnection telemetryClientConnection) {
         this.telemetryClient = telemetryClient;
+        this.telemetryClientConnection = telemetryClientConnection;
     }
 
     public String getDiagnosticInfo()
